@@ -1,0 +1,14 @@
+description = "Entities (domain objects) and uses cases that implement the business logic"
+
+dependencies {
+    compile libs.string_utils
+
+    testCompile libs.unit_tests
+}
+
+dependencies {
+    compile project(":application:core")
+    compile libs.database
+
+    testCompile libs.unit_tests
+}

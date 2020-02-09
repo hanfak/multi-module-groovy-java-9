@@ -1,0 +1,34 @@
+description = "Acceptance & Documentation Tests for the BDD cycle (objective: have conversaions and demonstrate requirements)"
+
+test {
+
+    // make gradle print the test result for each test in the build (we like to see the acceptance tests running)
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+    // set the output folder for the acceptance tests that use yatspec, and print the full path after the test execution
+    systemProperty "yatspec.output.dir", "build/reports/yatspec"
+    doLast {
+        println "==========================================================================================="
+        println "Acceptance tests output: ${project.buildDir.absolutePath}/reports/yatspec/com/clean/example"
+        println "==========================================================================================="
+    }
+}
+
+// we want to run the acceptance tests after the unit tests, to follow the testing pyramid
+test.mustRunAfter(
+        ":application:wiring:test",
+        ":application:core:test",
+        ":application:dataproviders:test",
+        ":application:entrypoints:test"
+)
+
+dependencies {
+    compile project(":application:wiring")
+    compile libs.unit_tests
+    compile libs.acceptance_tests
+    compile libs.end_to_end_test
+
+    testCompile libs.string_utils
+}

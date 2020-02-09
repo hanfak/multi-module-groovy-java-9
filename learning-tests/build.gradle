@@ -1,0 +1,12 @@
+description = "Learning Tests for documentating use of libraries or new techniques before using in application "
+
+// we want to run the learning tests after the all tests
+test.mustRunAfter(":integration-tests:test")
+
+dependencies {
+    compile project(":application:wiring")
+    compile libs.unit_tests
+    compile libs.integration_test
+
+    testCompile project(":acceptance-tests")
+}

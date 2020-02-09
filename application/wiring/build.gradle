@@ -1,0 +1,17 @@
+description = "Wires the application together."
+
+// generate the main application jar in the "application" folder, to make it easier to find
+jar {
+    archiveName = "multi-module.jar"
+    destinationDir = project(":application").getBuildDir()
+}
+
+dependencies {
+    compile project(":application:core")
+    compile project(":application:dataproviders")
+    compile project(":application:entrypoints")
+
+    compile libs.log
+
+    testCompile libs.unit_tests
+}

@@ -1,0 +1,12 @@
+rootProject.name = 'multi-module-groovy-java-9'
+// tests
+include 'acceptance-tests'
+include 'integration-tests'
+
+// application
+include "application:core"
+include "application:dataproviders"
+include "application:entrypoints"
+include "application:wiring"
+include 'learning-tests'
+
