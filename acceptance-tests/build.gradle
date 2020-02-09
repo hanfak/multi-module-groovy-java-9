@@ -20,8 +20,8 @@ test {
 test.mustRunAfter(
         ":application:wiring:test",
         ":application:core:test",
-        ":application:dataproviders:test",
-        ":application:entrypoints:test"
+        ":application:infrastructure:dataproviders:test",
+        ":application:infrastructure:entrypoints:test"
 )
 
 dependencies {

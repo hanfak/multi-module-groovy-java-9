@@ -8,8 +8,8 @@ jar {
 
 dependencies {
     compile project(":application:core")
-    compile project(":application:dataproviders")
-    compile project(":application:entrypoints")
+    compile project("application:infrastructure:entrypoints")
+    compile project("application:infrastructure:dataproviders")
 
     compile libs.log
 
