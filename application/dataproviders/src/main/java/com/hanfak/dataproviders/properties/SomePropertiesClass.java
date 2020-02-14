@@ -1,4 +1,6 @@
 package com.hanfak.dataproviders.properties;
 
-public class SomePropertiesClass {
+import com.hanfak.core.usecase.port.out.SomePropertyInterface;
+
+public class SomePropertiesClass implements SomePropertyInterface {
 }

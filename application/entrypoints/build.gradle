@@ -9,3 +9,15 @@ dependencies {
 
     testCompile libs.unit_tests
 }
+
+ext.moduleName = 'com.hanfak.entrypoints'
+compileJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs.addAll([
+                '--module-path', classpath.asPath,
+                '--add-modules', moduleName
+        ])
+        classpath = files()
+    }
+}

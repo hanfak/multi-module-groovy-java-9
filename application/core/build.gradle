@@ -6,9 +6,14 @@ dependencies {
     testCompile libs.unit_tests
 }
 
-dependencies {
-    compile project(":application:core")
-    compile libs.database
-
-    testCompile libs.unit_tests
+ext.moduleName = 'core'
+compileJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs.addAll([
+                '--module-path', classpath.asPath,
+                '--add-modules', moduleName
+        ])
+        classpath = files()
+    }
 }

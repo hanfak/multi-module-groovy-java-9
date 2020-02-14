@@ -4,6 +4,7 @@ description = "Clean Architecture Example"
 configure(allprojects - project(":application")) {
     apply plugin: "java"
     sourceCompatibility = JavaVersion.VERSION_1_9
+    targetCompatibility = JavaVersion.VERSION_1_9
 }
 
 group 'com.hanfak'
@@ -70,5 +71,5 @@ subprojects {
 }
 
 wrapper {
-    gradleVersion = "5.2.1"
+    gradleVersion = "6.1.1"
 }
